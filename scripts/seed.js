@@ -1,7 +1,7 @@
 const db = require('mysql2/promise');
 // const {
 //     users
-// } = require('../src/lib/fixtures.js');
+// } = require('../src/lib/fixtures.ts');
 const bcrypt = require('bcrypt');
 
 const dbHost = process.env.DB_HOST;
@@ -10,7 +10,7 @@ const dbName = process.env.DB_NAME;
 const dbUsername = process.env.DB_USERNAME;
 const dbPassword = process.env.DB_PASSWORD;
 
-// @Todo: Get this data from '../src/lib/fixtures.js'
+// @Todo: Get this data from '../src/lib/fixtures.ts'
 // Currently it gives users as 'undefined' if imported
 const users = [
     {
