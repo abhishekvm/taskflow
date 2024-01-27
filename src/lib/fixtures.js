@@ -1,6 +1,4 @@
-import {User} from "@/lib/lib/models";
-
-const users: User[] = [
+const users = [
     {
         id: 1,
         name: 'Abhishek',
@@ -13,4 +11,4 @@ const users: User[] = [
         email: 'paul@acme.com',
         password: 'paul@acme.com'
     }
-]
+];
