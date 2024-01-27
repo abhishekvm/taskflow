@@ -16,14 +16,12 @@ const users = [
     {
         id: 1,
         name: 'Abhishek',
-        email: 'abhishek@acme.com',
-        password: 'abhishek@acme.com'
+        email: 'abhishek@acme.com'
     },
     {
         id: 2,
         name: 'Paul',
-        email: 'paul@acme.com',
-        password: 'paul@acme.com'
+        email: 'paul@acme.com'
     }
 ];
 
@@ -41,11 +39,10 @@ async function testDBConnection(conn) {
 async function seedUsers(conn) {
     try {
         const createTable = `
-            CREATE TABLE IF NOT EXISTS users (
+            CREATE TABLE IF NOT EXISTS user (
                     id INT UNSIGNED AUTO_INCREMENT,
                     name VARCHAR(256),
                     email VARCHAR(256) NOT NULL UNIQUE,
-                    password TEXT NOT NULL,
                     constraint users_pk primary key (id)
             )
         `;
@@ -54,12 +51,10 @@ async function seedUsers(conn) {
         console.log('Created Users Table');
 
         for (user of users) {
-            const hashedPassword = await bcrypt.hash(user.password, 10);
-
             // @Todo: Use prepared statement
             const insertUser = `
-                INSERT IGNORE INTO users (id, name, email, password)
-                VALUES ('${user.id}', '${user.name}', '${user.email}', '${hashedPassword}')
+                INSERT IGNORE INTO user (id, name, email)
+                VALUES ('${user.id}', '${user.name}', '${user.email}')
             `
             await conn.query(insertUser);
         }
