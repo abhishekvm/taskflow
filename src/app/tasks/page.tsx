@@ -1,3 +1,3 @@
 export default function Page() {
-    return <h2>List of Tasks</h2>
+   return <h2>List of Tasks</h2>;
 }
