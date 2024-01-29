@@ -5,6 +5,10 @@ function createUserLink(id: number) {
    return `/users/${id}`;
 }
 
+export async function UserTableLoading() {
+   return <h3>Loading User Table...</h3>;
+}
+
 export default async function UsersTable({ query }: { query?: string }) {
    var condition = {};
    if (query) {
@@ -15,6 +19,9 @@ export default async function UsersTable({ query }: { query?: string }) {
       };
    }
    const users = await prisma.user.findMany(condition);
+
+   console.log('Fetching Users data...');
+   await new Promise((resolve) => setTimeout(resolve, 3000));
 
    console.log(query);
 

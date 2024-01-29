@@ -1,5 +1,6 @@
-import UsersTable from '@/app/ui/users/users';
+import UsersTable, { UserTableLoading } from '@/app/ui/users/users';
 import UserSearch from '@/app/ui/users/search';
+import { Suspense } from 'react';
 
 export default async function Page({
    searchParams,
@@ -10,7 +11,10 @@ export default async function Page({
    return (
       <>
          <UserSearch placeholder='Search User...' />
-         <UsersTable query={searchParams?.q} />
+
+         <Suspense fallback={<UserTableLoading />}>
+            <UsersTable query={searchParams?.q} />
+         </Suspense>
       </>
    );
 }
