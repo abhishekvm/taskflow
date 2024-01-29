@@ -18,17 +18,10 @@ export default function RootLayout({
    return (
       <html lang='en'>
          <body className='{inter.className}'>
-            <div className='ag-side-bar-left'>
-               <section>
-                  <nav>
-                     <Link href='/users'>Users</Link>
-                  </nav>
-                  <nav>
-                     <Link href='/tasks'>Tasks</Link>
-                  </nav>
-               </section>
-            </div>
             <section>{children}</section>
+            <div>
+               <Link href={'/'}>{'<-'}Back to Home</Link>
+            </div>
          </body>
       </html>
    );

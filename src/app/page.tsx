@@ -3,9 +3,14 @@ import Link from 'next/link';
 export default function Home() {
    return (
       <div>
-         <h3>
-            There is nothing on Home Page yet, use the sidebar links to navigate
-         </h3>
+         <section>
+            <nav>
+               <Link href='/users'>Users</Link>
+            </nav>
+            <nav>
+               <Link href='/tasks'>Tasks</Link>
+            </nav>
+         </section>
       </div>
    );
 }
